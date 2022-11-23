@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30 Days Of React Challenge</title>
+    <style>
+        /* == General style === */
+        * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+        }
+  
+        html,
+        body {
+          height: 100%;
+          line-height: 1.5;
+          font-family: 'Trebuchet MS';
+          font-weight: 300;
+          color: black;
+        }
+  
+        .root {
+          min-height: 100%;
+          position: relative;
+        }
+  
+        .header-wrapper,
+        .main-wrapper,
+        .footer-wrapper {
+          width: 85%;
+          margin: auto;
+        }
+  
+        .header-wrapper,
+        .main-wrapper {
+          padding: 10px;
+          margin: 2px auto;
+        }
+  
+        h1 {
+          font-size: 70px;
+          font-weight: 300;
+        }
+  
+        h2,
+        h3 {
+          font-weight: 300;
+        }
+  
+        header {
+          background-color: green;
+          padding: 10px;
+        }
+  
+        main {
+          padding: 10px;
+          padding-bottom: 60px;
+          /* Height of the footer */
+        }
+  
+        ul {
+          margin-left: 15px;
+        }
+  
+        ul li {
+          list-style: circle;
+        }
+  
+        footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 100px;
+          /* Height of the footer */
+          background: orange;
+        }
+  
+        .footer-wrapper {
+          font-weight: 400;
+          text-align: center;
+          line-height: 60px;
+        }
+      </style>
+  </head>
+
+  <body>
+    <div class="root"></div>
+
+    <script
+        crossorigin
+        src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // get the root element from the HTML document
+        const rootElement = document.querySelector('.root')
+
+        const date = new Date().getDay()
+        const prereqs = ['HTML', 'CSS', 'JavaScript']
+        const prereqsFormatted = prereqs.map((prereq) => <li key={prereq}>{prereq}</li>)
+
+        // Create style variable for resuse
+
+        //const style = { border: '2px solid black', color: 'black', fontSize: '18px' }
+
+        // JSX element
+        const header = (
+            <header>
+                <h1>Welcome to 30 Days Of React</h1>
+                <h2>Getting Started React</h2>
+                <h3>JavaScript Library</h3>
+                <p>Asabeneh Yetayeh</p>
+                <small>{date}</small>
+            </header>
+        )
+
+        const main = (
+            <main>
+                <p>Prerequisite to get started react.js</p>
+                <ul>{prereqsFormatted}</ul>
+            </main>
+        )
+
+        const copyRight = 'Copyright 2020'
+
+        // JSX element, footer
+        const footer = (
+            <footer>
+            <div className='footer-wrapper'>
+                <p>{copyRight}</p>
+            </div>
+            </footer>
+      )
+        const app = (
+            <div>
+                {header}
+                {main}
+                {footer}
+            </div>
+        )
+
+        ReactDOM.render(app, rootElement)
+
+    </script>
+  </body>
+</html>
