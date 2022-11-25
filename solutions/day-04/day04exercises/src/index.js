@@ -11,9 +11,9 @@ const hexaColor = () => {
   return "#" + color;
 };
 
-const ColorButton = (colorInput) => {
+const ColorButton = () => {
   return (
-    <button style={{color: colorInput}}></button>
+    <button style={{color: 'red'}}></button>
   )
 }
   
