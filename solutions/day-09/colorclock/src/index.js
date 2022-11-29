@@ -9,41 +9,10 @@ class App extends React.Component {
     background: "#000000",
   };
 
-  setTimeOfDay = () => {
-    const hours = new Date().getHours();
-    if (hours < 12) {
-      this.setState({ timeOfDay: 1 });
-    } else if (hours < 16) {
-      this.setState({ timeOfDay: 2 });
-    } else if (hours < 20) {
-      this.setState({ timeOfDay: 3 });
-    } else {
-      this.setState({ timeOfDay: 4 });
-    }
-
-    switch (this.state.timeOfDay) {
-      case 1:
-        this.setState({ background: "#40ccff" });
-        break;
-      case 2:
-        this.setState({ background: "#eed061" });
-        break;
-      case 3:
-        this.setState({ background: "#ff7100" });
-        break;
-      case 4:
-        this.setState({ background: "#0055be" });
-        break;
-      default:
-        this.setState({ background: "#40ccff" });
-    }
-  };
-
   render() {
-    this.setTimeOfDay();
     return (
       <div className={"app"}>
-        <Clock background={this.state.background} />
+        <Clock />
       </div>
     );
   }

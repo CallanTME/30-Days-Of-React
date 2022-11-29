@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
-function Clock(props) {
+function Clock() {
   const [date, setDate] = useState(new Date());
-  const color = props.background;
 
   function refreshClock() {
     setDate(new Date());
   }
+
+  function setTimeOfDay() {
+    const hours = new Date().getHours();
+    if (hours < 12) {
+      return "#40ccff";
+    } else if (hours < 17) {
+      return "#eed061";
+    } else if (hours < 20) {
+      return "#ff7100";
+    } else {
+      return "#0055be";
+    }
+  }
+
   useEffect(() => {
     const timerId = setInterval(refreshClock, 1000);
     return function cleanup() {
@@ -13,7 +26,7 @@ function Clock(props) {
     };
   }, []);
   return (
-    <div className={"main-wrapper"} style={{ backgroundColor: color }}>
+    <div className={"main-wrapper"} style={{ backgroundColor: setTimeOfDay() }}>
       {date.toLocaleTimeString()}
     </div>
   );
