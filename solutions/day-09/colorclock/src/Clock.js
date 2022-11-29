@@ -13,7 +13,7 @@ function Clock() {
     } else if (hours < 17) {
       return "#eed061";
     } else if (hours < 20) {
-      return "#ff7100";
+      return "#b94000";
     } else {
       return "#0055be";
     }
